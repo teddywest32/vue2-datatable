@@ -19,6 +19,7 @@
   </ul>
 </template>
 <script>
+// without drag-and-drop sortable feature
 import isColVisible from '../_utils/isColVisible'
 
 export default {

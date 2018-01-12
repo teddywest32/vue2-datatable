@@ -44,7 +44,7 @@
   </div>
 </template>
 <script>
-import ColumnGroup from './ColumnGroup.vue'
+import ColumnGroup from './ColumnGroup/'
 import groupBy from 'lodash/groupBy'
 import keyGen from '../_utils/keyGen'
 import replaceWith from '../_utils/replaceWith'
@@ -85,10 +85,18 @@ export default {
   },
   computed: {
     colGroups () {
-      return groupBy(
-        this.columns.filter(col => col.label || col.title),
+      const { columns } = this
+
+      const colGroups = groupBy(
+        columns.filter(col => col.label || col.title),
         'group'
       )
+
+      // if you want the drag-and-drop sortable feature
+      // do not set col[i].group
+      return Object.keys(colGroups).length === 1
+        ? { 'Columns': columns } // keep the reference for sorting
+        : colGroups
     },
     drpMenuStyle () {
       const w = Object.keys(this.colGroups).length * 150

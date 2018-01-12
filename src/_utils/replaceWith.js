@@ -3,6 +3,6 @@
  * @param {Array} target
  * @param {Array} source
  */
-export default (target, source) => {
+export default function (target, source) {
   target.splice(0, target.length, ...source)
 }
