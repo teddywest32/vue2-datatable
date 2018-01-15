@@ -64,7 +64,7 @@ export default {
   font-size: 18px;
 }
 .-col-group > li {
-  margin-bottom: 5px;
+  margin-bottom: 3px;
   padding-left: 10px;
   list-style: none;
   line-height: 20px;
