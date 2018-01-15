@@ -92,10 +92,12 @@ export default {
         'group'
       )
 
+      const groupNames = Object.keys(colGroups)
+
       // if you want the drag-and-drop sortable feature
-      // do not set col[i].group
-      return Object.keys(colGroups).length === 1
-        ? { 'Columns': columns } // keep the reference for sorting
+      // do not set multiple col[i].group names
+      return groupNames.length === 1
+        ? { [groupNames[0]]: columns } // keep the reference for sorting
         : colGroups
     },
     drpMenuStyle () {
